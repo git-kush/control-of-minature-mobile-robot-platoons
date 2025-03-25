@@ -1,0 +1,81 @@
+[0.065s] Invoking command in '/home/kush/robot_ws/build/potential_field': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake /home/kush/robot_ws/src/ROS2-PotentialField -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kush/robot_ws/install/potential_field
+[0.824s] -- The C compiler identification is GNU 11.4.0
+[0.824s] -- The CXX compiler identification is GNU 11.4.0
+[0.824s] -- Detecting C compiler ABI info
+[0.824s] -- Detecting C compiler ABI info - done
+[0.825s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.825s] -- Detecting C compile features
+[0.825s] -- Detecting C compile features - done
+[0.825s] -- Detecting CXX compiler ABI info
+[0.867s] -- Detecting CXX compiler ABI info - done
+[0.872s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.873s] -- Detecting CXX compile features
+[0.874s] -- Detecting CXX compile features - done
+[0.898s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.166s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.306s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.411s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[1.543s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.564s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.586s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.617s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.663s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.814s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.825s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.057s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.095s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.159s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.192s] -- Looking for pthread.h
+[2.345s] -- Looking for pthread.h - found
+[2.346s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.458s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.459s] -- Found Threads: TRUE  
+[2.573s] -- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)
+[2.630s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[2.669s] -- Found tf2_geometry_msgs: 0.25.12 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[2.707s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[2.709s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[2.710s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.965s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.112s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.118s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.118s] -- Configured cppcheck include dirs: /home/kush/robot_ws/src/ROS2-PotentialField/include
+[3.118s] -- Configured cppcheck exclude dirs and/or files: 
+[3.123s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[3.123s] -- Configured cpplint exclude dirs and/or files: 
+[3.125s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.127s] -- Added test 'lint_cmake' to check CMake code style
+[3.129s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[3.134s] -- Added test 'uncrustify' to check C / C++ code style
+[3.134s] -- Configured uncrustify additional arguments: 
+[3.136s] -- Added test 'xmllint' to check XML markup files
+[3.140s] -- Configuring done
+[3.161s] -- Generating done
+[3.167s] -- Build files have been written to: /home/kush/robot_ws/build/potential_field
+[3.181s] Invoked command in '/home/kush/robot_ws/build/potential_field' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake /home/kush/robot_ws/src/ROS2-PotentialField -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kush/robot_ws/install/potential_field
+[3.183s] Invoking command in '/home/kush/robot_ws/build/potential_field': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/kush/robot_ws/build/potential_field -- -j5 -l5
+[3.263s] [ 50%] [32mBuilding CXX object CMakeFiles/potential_field_node.dir/src/potentialF.cpp.o[0m
+[18.543s] [100%] [32m[1mLinking CXX executable potential_field_node[0m
+[19.707s] [100%] Built target potential_field_node
+[19.728s] Invoked command in '/home/kush/robot_ws/build/potential_field' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/kush/robot_ws/build/potential_field -- -j5 -l5
+[19.730s] Invoking command in '/home/kush/robot_ws/build/potential_field': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --install /home/kush/robot_ws/build/potential_field
+[19.744s] -- Install configuration: ""
+[19.744s] -- Execute custom install script
+[19.748s] -- Symlinking: /home/kush/robot_ws/install/potential_field/lib/potential_field/potential_field_node
+[19.762s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field//launch/potential_field.launch.py
+[19.776s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/ament_index/resource_index/package_run_dependencies/potential_field
+[19.789s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/ament_index/resource_index/parent_prefix_path/potential_field
+[19.803s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/environment/ament_prefix_path.sh
+[19.816s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/environment/ament_prefix_path.dsv
+[19.837s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/environment/path.sh
+[19.848s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/environment/path.dsv
+[19.862s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/local_setup.bash
+[19.876s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/local_setup.sh
+[19.890s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/local_setup.zsh
+[19.903s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/local_setup.dsv
+[19.917s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/package.dsv
+[19.937s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/ament_index/resource_index/packages/potential_field
+[19.952s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/cmake/potential_fieldConfig.cmake
+[19.965s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/cmake/potential_fieldConfig-version.cmake
+[19.978s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/package.xml
+[19.994s] Invoked command in '/home/kush/robot_ws/build/potential_field' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --install /home/kush/robot_ws/build/potential_field

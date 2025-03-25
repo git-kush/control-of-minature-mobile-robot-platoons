@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing turtlebot3_follower_control.egg-info/PKG-INFO
+writing dependency_links to turtlebot3_follower_control.egg-info/dependency_links.txt
+writing entry points to turtlebot3_follower_control.egg-info/entry_points.txt
+writing requirements to turtlebot3_follower_control.egg-info/requires.txt
+writing top-level names to turtlebot3_follower_control.egg-info/top_level.txt
+reading manifest file 'turtlebot3_follower_control.egg-info/SOURCES.txt'
+writing manifest file 'turtlebot3_follower_control.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/kush/robot_ws/install/turtlebot3_follower_control/lib/python3.10/site-packages/turtlebot3-follower-control.egg-link (link to .)
+Installing follower_control script to /home/kush/robot_ws/install/turtlebot3_follower_control/lib/turtlebot3_follower_control
+
+Installed /home/kush/robot_ws/build/turtlebot3_follower_control
+running symlink_data

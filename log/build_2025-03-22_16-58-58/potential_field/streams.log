@@ -1,0 +1,25 @@
+[0.079s] Invoking command in '/home/kush/robot_ws/build/potential_field': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/kush/robot_ws/build/potential_field -- -j5 -l5
+[0.795s] [35m[1mConsolidate compiler generated dependencies of target potential_field_node[0m
+[0.796s] [100%] Built target potential_field_node
+[0.797s] Invoked command in '/home/kush/robot_ws/build/potential_field' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/kush/robot_ws/build/potential_field -- -j5 -l5
+[0.814s] Invoking command in '/home/kush/robot_ws/build/potential_field': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --install /home/kush/robot_ws/build/potential_field
+[0.826s] -- Install configuration: ""
+[0.826s] -- Execute custom install script
+[0.827s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/lib/potential_field/potential_field_node
+[0.828s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field//launch/potential_field.launch.py
+[0.828s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/ament_index/resource_index/package_run_dependencies/potential_field
+[0.828s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/ament_index/resource_index/parent_prefix_path/potential_field
+[0.828s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field/environment/ament_prefix_path.sh
+[0.829s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field/environment/ament_prefix_path.dsv
+[0.829s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field/environment/path.sh
+[0.829s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field/environment/path.dsv
+[0.829s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field/local_setup.bash
+[0.830s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field/local_setup.sh
+[0.830s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field/local_setup.zsh
+[0.830s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field/local_setup.dsv
+[0.830s] -- Symlinking: /home/kush/robot_ws/install/potential_field/share/potential_field/package.dsv
+[0.857s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/ament_index/resource_index/packages/potential_field
+[0.857s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field/cmake/potential_fieldConfig.cmake
+[0.857s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field/cmake/potential_fieldConfig-version.cmake
+[0.857s] -- Up-to-date symlink: /home/kush/robot_ws/install/potential_field/share/potential_field/package.xml
+[0.861s] Invoked command in '/home/kush/robot_ws/build/potential_field' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --install /home/kush/robot_ws/build/potential_field

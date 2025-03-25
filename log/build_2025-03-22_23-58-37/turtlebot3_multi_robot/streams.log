@@ -1,0 +1,54 @@
+[0.953s] Invoking command in '/home/kush/robot_ws/build/turtlebot3_multi_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/kush/robot_ws/build/turtlebot3_multi_robot -- -j5 -l5
+[1.035s] Invoked command in '/home/kush/robot_ws/build/turtlebot3_multi_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/kush/robot_ws/build/turtlebot3_multi_robot -- -j5 -l5
+[1.052s] Invoking command in '/home/kush/robot_ws/build/turtlebot3_multi_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --install /home/kush/robot_ws/build/turtlebot3_multi_robot
+[1.068s] -- Install configuration: ""
+[1.069s] -- Execute custom install script
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//launch/gazebo_multi_nav2_world.launch.py
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//launch/gazebo_multi_world.launch.py
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//launch/gazebo_threebots_spawn.launch.py
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//launch/gazebo_threebots_straight.launch.py
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//launch/nav2_bringup/bringup_launch.py
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//launch/nav2_bringup/localization_launch.py
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//launch/nav2_bringup/navigation_launch.py
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//launch/nav2_bringup/rviz_launch.py
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//launch/nav2_bringup/slam_launch.py
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_burger/meshes/burger_base.dae
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_burger/meshes/lds.dae
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_burger/meshes/tire.dae
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_burger/model-1_4.sdf
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_burger/model.config
+[1.069s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_burger/model.sdf
+[1.075s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_waffle/meshes/lds.dae
+[1.075s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_waffle/meshes/r200.dae
+[1.075s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_waffle/meshes/tire.dae
+[1.075s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_waffle/meshes/waffle_base.dae
+[1.075s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_waffle/model-1_4.sdf
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_waffle/model.config
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_waffle/model.sdf
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//models/turtlebot3_waffle/model_nocamera.sdf
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//rviz/multi_nav2_default_view.rviz
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//rviz/nav2_default_view.rviz
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//urdf/common_properties.urdf
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//urdf/turtlebot3_burger.urdf
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//urdf/turtlebot3_waffle.urdf
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//worlds/car.world
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//worlds/multi_empty_world.world
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//worlds/multi_robot_world.world
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot//params/nav2_params.yaml
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/environment/multi_robot.dsv
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/ament_index/resource_index/package_run_dependencies/turtlebot3_multi_robot
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/ament_index/resource_index/parent_prefix_path/turtlebot3_multi_robot
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/environment/ament_prefix_path.sh
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/environment/ament_prefix_path.dsv
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/environment/path.sh
+[1.076s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/environment/path.dsv
+[1.077s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/local_setup.bash
+[1.077s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/local_setup.sh
+[1.077s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/local_setup.zsh
+[1.077s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/local_setup.dsv
+[1.077s] -- Symlinking: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/package.dsv
+[1.093s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/ament_index/resource_index/packages/turtlebot3_multi_robot
+[1.093s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/cmake/turtlebot3_multi_robotConfig.cmake
+[1.093s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/cmake/turtlebot3_multi_robotConfig-version.cmake
+[1.094s] -- Up-to-date symlink: /home/kush/robot_ws/install/turtlebot3_multi_robot/share/turtlebot3_multi_robot/package.xml
+[1.095s] Invoked command in '/home/kush/robot_ws/build/turtlebot3_multi_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader:/home/kush/robot_ws/install/turtlebot3_follower_control:/home/kush/turtlebot3_ws/install/turtlebot3_teleop:/home/kush/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --install /home/kush/robot_ws/build/turtlebot3_multi_robot

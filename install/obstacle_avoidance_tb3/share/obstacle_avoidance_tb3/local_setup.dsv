@@ -1,0 +1,3 @@
+source;share/obstacle_avoidance_tb3/environment/ament_prefix_path.sh
+source;share/obstacle_avoidance_tb3/environment/path.sh
+source;share/obstacle_avoidance_tb3/environment/pythonpath.sh

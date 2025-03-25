@@ -1,0 +1,3 @@
+[console_scripts]
+follower_control = turtlebot3_follower_control.follower_control:main
+

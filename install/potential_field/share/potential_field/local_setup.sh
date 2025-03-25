@@ -1,0 +1,1 @@
+/home/kush/robot_ws/build/potential_field/ament_cmake_environment_hooks/local_setup.sh

@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing turtlebot3_lane_changing_leader.egg-info/PKG-INFO
+writing dependency_links to turtlebot3_lane_changing_leader.egg-info/dependency_links.txt
+writing entry points to turtlebot3_lane_changing_leader.egg-info/entry_points.txt
+writing requirements to turtlebot3_lane_changing_leader.egg-info/requires.txt
+writing top-level names to turtlebot3_lane_changing_leader.egg-info/top_level.txt
+reading manifest file 'turtlebot3_lane_changing_leader.egg-info/SOURCES.txt'
+writing manifest file 'turtlebot3_lane_changing_leader.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/kush/robot_ws/install/turtlebot3_lane_changing_leader/lib/python3.10/site-packages/turtlebot3-lane-changing-leader.egg-link (link to .)
+Installing lane_changing_leader script to /home/kush/robot_ws/install/turtlebot3_lane_changing_leader/lib/turtlebot3_lane_changing_leader
+
+Installed /home/kush/robot_ws/build/turtlebot3_lane_changing_leader
+running symlink_data

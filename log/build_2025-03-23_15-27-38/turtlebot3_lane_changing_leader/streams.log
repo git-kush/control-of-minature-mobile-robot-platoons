@@ -1,0 +1,17 @@
+[1.267s] Invoking command in '/home/kush/robot_ws/build/turtlebot3_lane_changing_leader': PYTHONPATH=/home/kush/robot_ws/build/turtlebot3_lane_changing_leader/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/kush/robot_ws/build/turtlebot3_lane_changing_leader/build --no-deps symlink_data
+[1.583s] running develop
+[1.783s] running egg_info
+[1.783s] writing turtlebot3_lane_changing_leader.egg-info/PKG-INFO
+[1.783s] writing dependency_links to turtlebot3_lane_changing_leader.egg-info/dependency_links.txt
+[1.784s] writing entry points to turtlebot3_lane_changing_leader.egg-info/entry_points.txt
+[1.784s] writing requirements to turtlebot3_lane_changing_leader.egg-info/requires.txt
+[1.784s] writing top-level names to turtlebot3_lane_changing_leader.egg-info/top_level.txt
+[1.787s] reading manifest file 'turtlebot3_lane_changing_leader.egg-info/SOURCES.txt'
+[1.788s] writing manifest file 'turtlebot3_lane_changing_leader.egg-info/SOURCES.txt'
+[1.790s] running build_ext
+[1.790s] Creating /home/kush/robot_ws/install/turtlebot3_lane_changing_leader/lib/python3.10/site-packages/turtlebot3-lane-changing-leader.egg-link (link to .)
+[1.791s] Installing lane_changing_leader script to /home/kush/robot_ws/install/turtlebot3_lane_changing_leader/lib/turtlebot3_lane_changing_leader
+[1.792s] 
+[1.792s] Installed /home/kush/robot_ws/build/turtlebot3_lane_changing_leader
+[1.792s] running symlink_data
+[1.849s] Invoked command in '/home/kush/robot_ws/build/turtlebot3_lane_changing_leader' returned '0': PYTHONPATH=/home/kush/robot_ws/build/turtlebot3_lane_changing_leader/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kush/robot_ws/install/turtlebot3_lane_changing_leader/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/kush/robot_ws/build/turtlebot3_lane_changing_leader/build --no-deps symlink_data
