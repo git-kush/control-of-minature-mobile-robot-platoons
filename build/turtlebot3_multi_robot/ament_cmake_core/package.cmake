@@ -1,6 +1,6 @@
 set(_AMENT_PACKAGE_NAME "turtlebot3_multi_robot")
 set(turtlebot3_multi_robot_VERSION "2.2.6")
-set(turtlebot3_multi_robot_MAINTAINER "Arshad Mehmood <arshadm78@yahoo.com>")
+set(turtlebot3_multi_robot_MAINTAINER "kush <kushagrasingh734@gmail.com>")
 set(turtlebot3_multi_robot_BUILD_DEPENDS "nav2_common" "navigation2" "launch_ros" "gazebo_ros_pkgs" "geometry_msgs" "nav_msgs" "rclcpp" "sensor_msgs" "tf2" "turtlebot3_navigation2")
 set(turtlebot3_multi_robot_BUILDTOOL_DEPENDS "ament_cmake")
 set(turtlebot3_multi_robot_BUILD_EXPORT_DEPENDS "gazebo_ros_pkgs" "geometry_msgs" "nav_msgs" "rclcpp" "sensor_msgs" "tf2" "turtlebot3_navigation2")

@@ -1,8 +1,8 @@
-# Install script for directory: /home/kush/robot_ws/src/turtlebot3_multi_robot
+# Install script for directory: /home/pramz/robot_ws/src/turtlebot3_multi_robot
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/kush/robot_ws/install/turtlebot3_multi_robot")
+  set(CMAKE_INSTALL_PREFIX "/home/pramz/robot_ws/install/turtlebot3_multi_robot")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,7 +43,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/kush/robot_ws/build/turtlebot3_multi_robot/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
+  include("/home/pramz/robot_ws/build/turtlebot3_multi_robot/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -54,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/kush/robot_ws/build/turtlebot3_multi_robot/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pramz/robot_ws/build/turtlebot3_multi_robot/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
