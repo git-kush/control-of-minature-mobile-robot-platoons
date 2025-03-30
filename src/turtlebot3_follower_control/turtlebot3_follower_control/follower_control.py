@@ -71,13 +71,21 @@ class SimpleFollowerControl(Node):
         # self.K_d_angular = 2.0 * math.sqrt(0.2 * self.K_p_angular)  # I=0.00422, actual turtlebot's moment of inertia
         # self.K_i_angular = 0.01
 
-        self.K_p_linear = 0.08
-        self.K_d_linear = 0.005
-        self.K_i_linear = 0.01  # Small integral term
+        # self.K_p_linear = 0.08
+        # self.K_d_linear = 0.005
+        # self.K_i_linear = 0.01  # Small integral term
 
-        self.K_p_angular = 0.3
-        self.K_d_angular = 0.01
-        self.K_i_angular = 0.05
+        # self.K_p_angular = 0.3
+        # self.K_d_angular = 0.01
+        # self.K_i_angular = 0.05
+
+        self.K_p_linear = 0.5
+        self.K_d_linear = 0.05
+        self.K_i_linear = 0.0005 # Small integral term
+
+        self.K_p_angular = 1.1
+        self.K_d_angular = 0.15
+        self.K_i_angular = 0.013
 
         # Create control timer
         self.timer = self.create_timer(0.05, self.control_loop)  # 20Hz control

@@ -59,7 +59,7 @@ class APFController(Node):
         return response
 
     def scan_callback(self, msg):
-        n = 81  # number of entries
+        n = 71  # number of entries
         self.Range = [0] * n
         for i in range(-(n-1)//2, (n+1)//2):
             if i >= 0:
