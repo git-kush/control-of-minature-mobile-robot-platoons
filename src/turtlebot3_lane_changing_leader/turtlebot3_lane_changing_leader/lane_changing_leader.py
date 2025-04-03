@@ -18,6 +18,18 @@ class APFController(Node):
         self.initial_speed = self.get_parameter('initial_speed').value
         self.get_logger().info(f"Initial speed set to: {self.initial_speed}")
 
+        self.overtaking = False
+        self.original_goal = None
+        self.safe_distance = 0.5  # meters
+        self.overtake_distance = 1.0
+        self.min_overtake_speed_diff = 0.15  # m/s
+
+         # APF parameters
+        self.attractive_gain = 0.5
+        self.repulsive_gain = 1.0
+        self.repulsive_range = 2.0
+        self.velocity_gain = 0.3
+
         # Motion enable flag - starts disabled
         self.motion_enabled = False
 
@@ -59,7 +71,7 @@ class APFController(Node):
         return response
 
     def scan_callback(self, msg):
-        n = 71  # number of entries
+        n = 61  # number of entries
         self.Range = [0] * n
         for i in range(-(n-1)//2, (n+1)//2):
             if i >= 0:
@@ -89,17 +101,19 @@ class APFController(Node):
         self.fig = plt.figure(figsize=(12, 6))
         self.ax = self.fig.add_subplot(121)
         self.ax2 = self.fig.add_subplot(122)
+        self.ax3 = self.fig.add_subplot(123)
 
         self.ax.set_ylim(-1, 3)
         self.ax.set_xlim(-1, 1)
         self.ax2.set_ylim(300, -300)
         self.ax2.set_xlim(-300, 300)
+        # self.ax2.set_ylim(300, -300)
+        # self.ax2.set_xlim(-300, 300)
 
         plt.show()
 
         self.scat1 = self.ax.scatter(self.x, self.y)
         self.plotForce = self.ax2.arrow(0, 0, (300 - (self.netFy))/100, self.netFx, width=0.5)
-
     def Forces(self):
         # finding force about fine.. in a range of -30 to +30 degrees
         self.fx = [0] * len(self.Range)
@@ -144,8 +158,6 @@ class APFController(Node):
         # Angular velocity remains the same
         move.angular.z = self.netFx / 300
 
-        self.get_logger().info(f"Linear: {move.linear.x:.2f}, Angular: {move.angular.z:.2f}")
-
         return move
 
     def Loop(self):
@@ -170,9 +182,12 @@ class APFController(Node):
             # Calculate and publish velocity
             velocities = self.Motion()
             self.cmd_vel_pub.publish(velocities)
+            if(self.i%5 == 0):
+                status = "ENABLED" if self.motion_enabled else "DISABLED"
+                self.get_logger().info(f"Motion {status} | Fx: {-self.netFx:.2f}, Fy: {-self.netFy:.2f}")
+                self.get_logger().info(f"Linear: {velocities.linear.x:.2f}, Angular: {velocities.angular.z:.2f}")
 
-            status = "ENABLED" if self.motion_enabled else "DISABLED"
-            self.get_logger().info(f"Motion {status} | Fx: {-self.netFx:.2f}, Fy: {-self.netFy:.2f}")
+            self.i += 1
 
         except Exception as e:
             self.get_logger().error(f"Error in Loop: {e}")

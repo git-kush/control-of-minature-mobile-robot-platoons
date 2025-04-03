@@ -89,6 +89,7 @@ class SimpleFollowerControl(Node):
 
         # Create control timer
         self.timer = self.create_timer(0.05, self.control_loop)  # 20Hz control
+        self.i = 1
 
         self.get_logger().info("Follower controller initialized and ready")
 
@@ -194,12 +195,13 @@ class SimpleFollowerControl(Node):
         self.heading_integral += heading_error
 
         # Logging (once per second)
-        if int(time.time()) % 5 == 0:
+        if self.i % 20 == 0:
             self.get_logger().info(
                 f"Distance: {distance:.2f}m (target: {self.desired_distance:.2f}m), "
                 f"Heading error: {math.degrees(heading_error):.1f}°, "
                 f"Cmd: linear={cmd.linear.x:.2f}, angular={cmd.angular.z:.2f}"
             )
+        self.i += 1
 
 def main(args=None):
     rclpy.init(args=args)
