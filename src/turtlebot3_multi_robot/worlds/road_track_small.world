@@ -223,7 +223,6 @@
       </link>
     </model>
     <model name='obstacle3'>
-      <static>1</static>
       <pose>5 -1.5 0.5 0 -0 0</pose>
       <link name='link'>
         <collision name='collision'>
@@ -324,10 +323,11 @@
       </model>
       <model name='obstacle1'>
         <pose>-7.02139 1.07414 0.300484 0 -0 0</pose>
+        <velocity>5 1 0 0 0 0</velocity>
         <scale>4.56379 1 0.627495</scale>
         <link name='link'>
           <pose>-7.02139 1.07414 0.300484 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
+          <velocity>5 1 0 0 0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
@@ -337,9 +337,6 @@
         <scale>1.39483 0.419063 0.517782</scale>
         <link name='link'>
           <pose>5.27394 0.063486 0.262353 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='right_edge'>

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+from sys import executable
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
@@ -30,7 +31,13 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory("gazebo_ros"), "launch", "gzserver.launch.py")
         ),
-        launch_arguments={"world": world}.items(),
+        launch_arguments={
+            "world": world,
+            "extra_gazebo_args":'--ros-args -r __node:=gazebo_ros_node '
+                                '-s libgazebo_ros_init.so '
+                                '-s libgazebo_ros_factory.so '
+                                '-s libgazebo_ros_force_system.so'
+        }.items(),
     )
 
     gzclient_cmd = IncludeLaunchDescription(
@@ -109,14 +116,25 @@ def generate_launch_description():
             'goal_x': -9.0,
             'goal_y': 0.0,
             'goal_threshold': 0.5
-            }  
+            }
         ],
         output="screen"
     )
     ld.add_action(lane_changing_node)
 
+    obstacle_controller_node = Node(
+        package="obstacle_controller",
+        executable="obstacle_mover",
+        name="obstacle_mover",
+        output="screen",
+        parameters=[
+                {"obstacle_name": "obstacle3"},
+                {"link_name": "link"},
+                {"speed": 0.15}
+            ]
+    )
 
-
+    ld.add_action(obstacle_controller_node)
 
     # Leader-Follower Control Nodes for tb1 and tb2
     for i in range(1, NUM_BOTS):  # Followers only (tb1, tb2)
