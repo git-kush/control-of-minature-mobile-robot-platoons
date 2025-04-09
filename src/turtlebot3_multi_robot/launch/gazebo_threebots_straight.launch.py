@@ -20,7 +20,7 @@ def generate_launch_description():
     )
 
     turtlebot3_multi_robot = get_package_share_directory("turtlebot3_multi_robot")
-    world = os.path.join(turtlebot3_multi_robot, "worlds", "road_track_small.world")
+    world = os.path.join(turtlebot3_multi_robot, "worlds", "road_track.world")
 
     urdf_file_name = "turtlebot3_" + TURTLEBOT3_MODEL + ".urdf"
     urdf = os.path.join(turtlebot3_multi_robot, "urdf", urdf_file_name)
