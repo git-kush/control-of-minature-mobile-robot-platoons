@@ -7,6 +7,7 @@
     Multi robot support TurtleBot3 in Gazebo
   </description>
   <maintainer email="kushagrasingh734@gmail.com">kush</maintainer>
+  <license>TODO: License declaration</license>
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>gazebo_ros_pkgs</depend>
   <depend>geometry_msgs</depend>

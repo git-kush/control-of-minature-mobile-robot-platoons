@@ -1,13 +1,6 @@
 package.xml
 setup.cfg
 setup.py
-../../build/turtlebot3_follower_control/turtlebot3_follower_control.egg-info/PKG-INFO
-../../build/turtlebot3_follower_control/turtlebot3_follower_control.egg-info/SOURCES.txt
-../../build/turtlebot3_follower_control/turtlebot3_follower_control.egg-info/dependency_links.txt
-../../build/turtlebot3_follower_control/turtlebot3_follower_control.egg-info/entry_points.txt
-../../build/turtlebot3_follower_control/turtlebot3_follower_control.egg-info/requires.txt
-../../build/turtlebot3_follower_control/turtlebot3_follower_control.egg-info/top_level.txt
-../../build/turtlebot3_follower_control/turtlebot3_follower_control.egg-info/zip-safe
 turtlebot3_follower_control/__init__.py
 turtlebot3_follower_control/follower_control.py
 turtlebot3_follower_control.egg-info/PKG-INFO

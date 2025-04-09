@@ -98,42 +98,94 @@ def generate_launch_description():
     # )
     # ld.add_action(teleop_turtlebot3)
 
+    # lane_changing_node = Node(
+    #     package="turtlebot3_lane_changing_leader",
+    #     executable="lane_changing_leader",
+    #     name="apf_controller",
+    #     parameters=[
+    #         {
+    #         'initial_speed': 0.4,
+    #         'goal_x': -9.0,
+    #         'goal_y': 0.0,
+    #         'goal_threshold': 0.5
+    #         }
+    #     ],
+    #     output="screen"
+    # )
+    # ld.add_action(lane_changing_node)
 
-    lane_changing_node = Node(
-        package="turtlebot3_lane_changing_leader",
-        executable="lane_changing_leader",
-        name="apf_controller",
-        parameters=[
-            {
-            'initial_speed': 0.4,
-            'goal_x': -9.0,
-            'goal_y': 0.0,
-            'goal_threshold': 0.5
-            }  
-        ],
-        output="screen"
+
+    # running the leader node
+    leader = Node(
+        package="motion_planner",
+        executable="apf_and_follower",
+        name="motion_planner_tb0",
+        namespace="/tb0",
+        output="screen",
+        parameters=[{
+            "number": 0,
+            "initial_speed": 1.0,
+            "successor_odom_topic": "/tb1/odom",
+            "odom_topic": "/tb0/odom",
+            "cmd_vel_topic": "/tb0/cmd_vel",
+            "desired_distance": INTERVEHICULAR_DISTANCE
+        }]
     )
-    ld.add_action(lane_changing_node)
+    ld.add_action(leader)
 
+    # middle follower
+    middle_follower = Node(
+        package="motion_planner",
+        executable="apf_and_follower",
+        name="motion_planner_tb1",
+        namespace="/tb1",
+        output="screen",
+        parameters=[{
+            "number": 1,
+            "predecessor_odom_topic": "/tb0/odom",
+            "successor_odom_topic": "/tb2/odom",
+            "odom_topic": "/tb1/odom",
+            "cmd_vel_topic": "/tb1/cmd_vel",
+            "desired_distance": INTERVEHICULAR_DISTANCE
+        }]
+    )
+    ld.add_action(middle_follower)
 
+    # last follower
+    last_follower = Node(
+        package="motion_planner",
+        executable="apf_and_follower",
+        name="motion_planner_tb2",
+        namespace="/tb2",
+        output="screen",
+        parameters=[{
+            "number": 2,
+            "predecessor_odom_topic": "/tb1/odom",
+            "odom_topic": "/tb2/odom",
+            "cmd_vel_topic": "/tb2/cmd_vel",
+            "desired_distance": INTERVEHICULAR_DISTANCE
+        }]
+    )
 
+    ld.add_action(last_follower)
 
     # Leader-Follower Control Nodes for tb1 and tb2
-    for i in range(1, NUM_BOTS):  # Followers only (tb1, tb2)
-        leader_odom = "/tb0/odom" if i == 1 else f"/tb{i-1}/odom"  # tb1 follows tb0, tb2 follows tb1
-        leader_follower_control = Node(
-            package="turtlebot3_follower_control",
-            executable="follower_control",
-            name=f"follower_control_tb{i}",
-            namespace=f"/tb{i}",
-            output="screen",
-            parameters=[{
-                "leader_odom_topic": leader_odom,
-                "follower_odom_topic": f"/tb{i}/odom",
-                "follower_cmd_vel_topic": f"/tb{i}/cmd_vel",
-                "desired_distance": INTERVEHICULAR_DISTANCE
-            }]
-        )
-        ld.add_action(leader_follower_control)
+    # for i in range(1, NUM_BOTS):  # Followers only (tb1, tb2)
+    #     leader_odom = "/tb0/odom" if i == 1 else f"/tb{i-1}/odom"  # tb1 follows tb0, tb2 follows tb1
+    #     leader_follower_control = Node(
+    #         package="turtlebot3_follower_control",
+    #         executable="follower_control",
+    #         name=f"follower_control_tb{i}",
+    #         namespace=f"/tb{i}",
+    #         output="screen",
+    #         parameters=[{
+    #             "number": i,
+    #             "leader_odom_topic": leader_odom,
+    #             "follower_odom_topic": f"/tb{i}/odom",
+    #             "follower_cmd_vel_topic": f"/tb{i}/cmd_vel",
+    #             "desired_distance": INTERVEHICULAR_DISTANCE
+    #         }]
+    #     )
+    #     ld.add_action(leader_follower_control)
 
     return ld
