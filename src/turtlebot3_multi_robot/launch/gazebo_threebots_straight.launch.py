@@ -105,11 +105,12 @@ def generate_launch_description():
         name="apf_controller",
         parameters=[
             {
-            'initial_speed': 0.4,
-            'goal_x': -9.0,
-            'goal_y': 0.0,
-            'goal_threshold': 0.5
-            }  
+                'number': 0,
+                'initial_speed': 0.4,
+                'goal_x': -9.0,
+                'goal_y': 0.0,
+                'goal_threshold': 0.5
+            }
         ],
         output="screen"
     )
@@ -119,20 +120,26 @@ def generate_launch_description():
 
 
     # Leader-Follower Control Nodes for tb1 and tb2
+        # leader_odom = "/tb0/odom" if i == 1 else f"/tb{i-1}/odom"  # tb1 follows tb0, tb2 follows tb1
     for i in range(1, NUM_BOTS):  # Followers only (tb1, tb2)
-        leader_odom = "/tb0/odom" if i == 1 else f"/tb{i-1}/odom"  # tb1 follows tb0, tb2 follows tb1
+        parameters = {
+            "number": i,
+            "leader_odom_topic": "/tb0/odom",
+            "predecessor_odom_topic": f"/tb{i-1}/odom",
+            "follower_odom_topic": f"/tb{i}/odom",
+            "follower_cmd_vel_topic": f"/tb{i}/cmd_vel",
+            "desired_distance": INTERVEHICULAR_DISTANCE
+        }
+        if i < NUM_BOTS-1:
+            parameters["successor_odom_topic"] = f"/tb{i+1}/odom"
+
         leader_follower_control = Node(
-            package="turtlebot3_follower_control",
-            executable="follower_control",
+            package="motion_planner",
+            executable="exec",
             name=f"follower_control_tb{i}",
             namespace=f"/tb{i}",
             output="screen",
-            parameters=[{
-                "leader_odom_topic": leader_odom,
-                "follower_odom_topic": f"/tb{i}/odom",
-                "follower_cmd_vel_topic": f"/tb{i}/cmd_vel",
-                "desired_distance": INTERVEHICULAR_DISTANCE
-            }]
+            parameters=[parameters]
         )
         ld.add_action(leader_follower_control)
 
