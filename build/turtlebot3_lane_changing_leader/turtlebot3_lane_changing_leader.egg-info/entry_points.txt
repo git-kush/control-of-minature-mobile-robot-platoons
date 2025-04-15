@@ -1,3 +1,0 @@
-[console_scripts]
-lane_changing_leader = turtlebot3_lane_changing_leader.lane_changing_leader:main
-

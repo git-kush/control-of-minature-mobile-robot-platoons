@@ -7,6 +7,11 @@ from nav_msgs.msg import Odometry
 import math
 import time
 # import numpy as np
+
+# the road boundaries
+Y_RIGHT_BOUND = 2
+Y_LEFT_BOUND = -2
+
 class SimpleFollowerControl(Node):
     def __init__(self):
         super().__init__("simple_follower_control")
@@ -19,7 +24,6 @@ class SimpleFollowerControl(Node):
         self.declare_parameter("successor_odom_topic", None)
         self.declare_parameter("desired_distance", 1.0)
         self.declare_parameter("number", 0)
-
         self.leader_odom_topic = self.get_parameter("leader_odom_topic").value
         self.follower_odom_topic = self.get_parameter("follower_odom_topic").value
         self.follower_cmd_vel_topic = self.get_parameter("follower_cmd_vel_topic").value
@@ -89,12 +93,21 @@ class SimpleFollowerControl(Node):
         self.successor_linear_vel = None
         self.successor_angular_vel = None
 
+        self.obstacle_pos = {
+            "x": 5,
+            "y": -1.5
+        }
+        self.obstacle_vel = None
+
         # Control constants
         self.linear_gain_l = 0.1
         self.linear_gain_p = 0.4
         self.linear_gain_s = 0.2
+        self.linear_gain_o = 0.5
         self.angular_gain_l = 0.4
         self.angular_gain_p = 0.8
+        self.angular_gain_b = 0.3
+        self.angular_gain_o = 0.3
         # self.distance_tolerance = 0.1  # meters
         # no need
 
@@ -162,7 +175,7 @@ class SimpleFollowerControl(Node):
         f_linear = 0.0
         f_rot = 0.0
 
-
+        ################## TRACKER ##################
         dxl = self.leader_pos.x - self.follower_pos.x
         dyl = self.leader_pos.y - self.follower_pos.y
 
@@ -192,6 +205,33 @@ class SimpleFollowerControl(Node):
             distance_s = math.sqrt(dxs**2 + dys**2)
             f_linear_s = self.linear_gain_s*math.tanh(steepness_const*(distance_s - self.desired_distance))
             f_linear -= f_linear_s
+
+
+        ################## OBSTACLE AVOINDANCE ##################
+
+        ## boundary avoidance
+        distance_right_bound = abs(self.follower_pos.y - Y_RIGHT_BOUND)
+        distance_left_bound = abs(self.follower_pos.y - Y_LEFT_BOUND)
+
+        # let minimum distance from boundary be 0.4 m
+        min_dis_obs = 0.4
+
+        if(distance_right_bound < min_dis_obs):
+            f_rot += self.angular_gain_b*(distance_right_bound**(-2) - min_dis_obs**(-2))
+        if distance_left_bound < min_dis_obs:
+            f_rot -= self.angular_gain_b*(distance_left_bound**(-2) - min_dis_obs**(-2))
+
+        # # apf for obstacle avoindance
+        if not (self.obstacle_pos is None):
+            dxo = self.obstacle_pos['x'] - self.follower_pos.x
+            dyo = self.obstacle_pos['y'] - self.follower_pos.y
+            sign = 1 if dxo > 0 else -1
+            distance_o = math.sqrt(dxo**2 + dyo**2)
+            bearing_o = math.atan2(dyo, dxo)
+
+            if distance_o < min_dis_obs:
+                f_linear += sign*self.linear_gain_o*(distance_o**(-2) - min_dis_obs**(-2))
+                f_rot -= self.angular_gain_o*self.normalize_angle(bearing_o - self.follower_orientation)
 
         # Create control message
         cmd = Twist()
