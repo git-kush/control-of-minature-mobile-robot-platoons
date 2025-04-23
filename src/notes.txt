@@ -1,0 +1,33 @@
+to overtake => in front jo bhi obstacle
+
+=> sense for obstacle from -30 to +30 deg
+=>you receive an array of obstacles,
+the window is pretty small so we can assume we are only looking towards obstacle in front..
+
+1. You are given an array of distances to obstacles
+2. find the minimum distance in that array, assume that to be the distance to the human operated vehicle
+3. if the distance of that closest obstacle becomes lesser than a safe distance (0.6 m) then calculate its velocity by finding the difference of consecutive minimum distances and multiplying by sampling frequency (20 Hz). The velocity can be smoothened out by exponential smoothening(a = 0.6)
+5. if the obtained relative speed indicates that the obstacle is approaching the leader with a speed greater than some threshold (say 0.2 m/s) then set the overtake flag to true and start a timer.
+6. create a virtual node with speed same as the obstacle at all instants initially spwaned 1 meter (say) ahead of the obstacle.
+7. attractive force vector is propotional to the displaceent vector between the leader and the goal. resolve the force into longitudnal(x) and lateral(y) components. I already have the code
+8. Once the leader reaches really close to the goal, unset the overtake flag. However, if the overtake timer goes off (say after 25 secs) and there still is some obstacle within safe distance of the leader then abort overtake. Also, maybe keep track of another flag which doesnt allow overtaking for 10 secs after an overtake was aborted.
+find the minimum distance in that array, that is the obstacle => take that to be the obstacle
+//how to check the obstacle's speed => only needs to be done if the obstacle is within some distance lets say 0.6m =>
+in the next iteration find the minimum distance and take the difference and divide by sampling time for the velocity => direction can be assumed head on, this velocity can be exponentially smoothened out...
+if this velocity is greater than the minimum overtake difference for lets say 3 sampling times=>
+we set the overtaking flag to true and start generate the apf
+we set the goal virtual node to have the velocity vector as human vehicle's velocity(initially straight) with some initial offset lets say 1m
+
+//now apf.. lane boundaries ki alag se banegi => side wala lekar distance
+now force will be applied solely based on distance
+//when the distance to goal becomes really small or the overtake timer expires and obstacle is still in front of you
+turn the overtake flag false.. overtake done
+
+
+/////////////////////////////////////////////////////////////
+robot positions
+9, 10, 11 => along -x axis
+
+1. make a single node which will run for all the robots
+2. earlier leader odom topic means the topic of the predecessor, but now we will need topic of predecessor as well as the leader
+3. each vehicle is tracking predecessor's and follower's positions and is affected by them
