@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from nav_msgs.msg import Odometry
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
@@ -7,6 +8,10 @@ from sensor_msgs.msg import LaserScan
 from std_srvs.srv import SetBool
 import matplotlib.pyplot as plt
 import numpy as np
+import math
+
+OBSTACLE_SPEED = 0.2
+SAMPLE_TIME = 0.05
 
 
 class APFController(Node):
@@ -21,13 +26,34 @@ class APFController(Node):
         # Motion enable flag - starts disabled
         self.motion_enabled = False
 
+        self.overtaking = False
+        self.pos_x = 11
+        self.pos_y = 0
+        self.orientation = 3.14159
+
+        self.obstacle_pos = {
+            "x": 8.0,
+            "y": 0.0
+        }
+        self.virtual_goal = {
+            "x": 0.0,
+            "y": 0.0
+        }
+
         # Publishers and subscribers
         self.cmd_vel_pub = self.create_publisher(Twist, '/tb0/cmd_vel', 10)
         self.subscription = self.create_subscription(
             LaserScan,
             '/tb0/scan',
             self.scan_callback,
-            10)
+            10
+        )
+        self.pose_subscription = self.create_subscription(
+            Odometry,
+            '/tb0/odom',
+            self.pose_callback,
+            10
+        )
 
         # Service to enable/disable motion
         self.srv = self.create_service(SetBool, 'enable_motion', self.enable_motion_callback)
@@ -37,11 +63,26 @@ class APFController(Node):
         self.Range = [0] * 61  # number of entries
 
         # Wait briefly for scan data
-        self.create_timer(0.05, self.timer_callback)
+        self.create_timer(SAMPLE_TIME, self.timer_callback)
 
         # For visualization
         self.i = 1
         self.initGraph()
+
+    def normalize_angle(self, angle):
+        """Normalize angle to [-pi, pi]"""
+        while angle > math.pi:
+            angle -= 2.0 * math.pi
+        while angle < -math.pi:
+            angle += 2.0 * math.pi
+        return angle
+
+    def quaternion_to_yaw(self, q):
+        """Convert quaternion to yaw angle in radians"""
+        # Extract yaw from quaternion
+        siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+        cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+        return math.atan2(siny_cosp, cosy_cosp)
 
     def enable_motion_callback(self, request, response):
         """Callback for the enable_motion service"""
@@ -51,6 +92,11 @@ class APFController(Node):
         response.success = True
         response.message = f"Motion {status}"
         return response
+
+    def pose_callback(self, msg):
+        self.pos_x = msg.pose.pose.position.x
+        self.pos_y = msg.pose.pose.position.y
+        self.orientation = self.quaternion_to_yaw(msg.pose.pose.orientation)
 
     def scan_callback(self, msg):
         n = 61  # number of entries
@@ -117,6 +163,24 @@ class APFController(Node):
         self.netFx = sum(self.fx)
         self.netFy = sum(self.fy)
 
+        if(self.overtaking):
+            dx = self.virtual_goal['x'] - self.pos_x
+            dy = self.virtual_goal['y'] - self.pos_y
+            distance = math.sqrt(dx**2 + dy**2)
+            if(distance < 0.1):
+                self.overtaking = False
+                self.virtual_goal = {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            # elif():
+            else:
+                bearing = math.atan2(dy, dx)
+                heading_err = self.normalize_angle(bearing - self.orientation)
+                self.netFx -= 2*heading_err # rotational
+                self.netFy -= 2*distance # translational
+                self.get_logger().info(f"heading_err: {2*heading_err}, distance: {2*distance}")
+
         # Calculate force magnitudes
         for i in range(len(self.Range)):
             self.size[i] = (self.fx[i]**2 + self.fy[i]**2)**0.5
@@ -143,8 +207,17 @@ class APFController(Node):
 
     def Loop(self):
         try:
+            self.obstacle_pos['x'] -= OBSTACLE_SPEED*SAMPLE_TIME
+
+            if(not self.overtaking and (0.1 < self.obstacle_pos['x'] - self.pos_x < 0.3)):
+                self.overtaking = True
+                self.virtual_goal = {
+                    "x": self.obstacle_pos['x'] - 5,
+                    "y": self.obstacle_pos['y'] #+1
+                }
             self.PlotData()
             self.Forces()
+
 
             # Update visualization
             self.ax.cla()

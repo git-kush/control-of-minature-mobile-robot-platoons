@@ -12,6 +12,9 @@ import time
 Y_RIGHT_BOUND = 2
 Y_LEFT_BOUND = -2
 
+OBSTACLE_SPEED = 0.15
+SAMPLE_TIME = 0.05 # 10Hz control
+
 class SimpleFollowerControl(Node):
     def __init__(self):
         super().__init__("simple_follower_control")
@@ -94,8 +97,8 @@ class SimpleFollowerControl(Node):
         self.successor_angular_vel = None
 
         self.obstacle_pos = {
-            "x": 5,
-            "y": -1.5
+            "x": 8.0,
+            "y": 0.0
         }
         self.obstacle_vel = None
 
@@ -116,7 +119,7 @@ class SimpleFollowerControl(Node):
         #     self.get_logger().info(f"IsLast number: {self.number}")
 
         # Create control timer
-        self.timer = self.create_timer(0.05, self.control_loop)  # 20Hz control
+        self.timer = self.create_timer(SAMPLE_TIME, self.control_loop)  # 20Hz control
 
         self.get_logger().info("Follower controller initialized and ready")
 
@@ -167,6 +170,7 @@ class SimpleFollowerControl(Node):
         """Main control loop that runs at fixed frequency"""
         # Check if we have received data from both robots
         # if self.leader_pos is None or self.follower_pos is None or (not self.is_last and self.successor_pos is None):
+        self.obstacle_pos['x'] -= OBSTACLE_SPEED*SAMPLE_TIME
         if self.leader_pos is None or self.follower_pos is None or self.predecessor_pos is None or ((not self.is_last) and (self.successor_pos is None)):
             return
 
@@ -263,13 +267,6 @@ class SimpleFollowerControl(Node):
 
         # Publish command
         self.cmd_vel_pub.publish(cmd)
-
-        # Logging (once per second)
-        if int(time.time()) % 5 == 0:
-            self.get_logger().info(
-                f"number:{self.number}"
-                f"Cmd: linear={cmd.linear.x:.2f}, angular={cmd.angular.z:.2f}"
-            )
 
 def main(args=None):
     rclpy.init(args=args)
