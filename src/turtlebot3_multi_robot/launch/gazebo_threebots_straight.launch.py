@@ -116,8 +116,13 @@ def generate_launch_description():
     )
     ld.add_action(lane_changing_node)
 
-
-
+    data_collection_node = Node(
+        package='turtlebot3_formation_analyzer',
+        executable='data_collection',
+        name='data_collection',
+        output='screen'
+    )
+    ld.add_action(data_collection_node)
 
     # Leader-Follower Control Nodes for tb1 and tb2
         # leader_odom = "/tb0/odom" if i == 1 else f"/tb{i-1}/odom"  # tb1 follows tb0, tb2 follows tb1
