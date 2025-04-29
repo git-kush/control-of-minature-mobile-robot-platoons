@@ -47,7 +47,7 @@ def generate_launch_description():
     INTERVEHICULAR_DISTANCE = 1.0  # Meters
     NUM_BOTS = 3
 
-    x_position = 9.0
+    x_position = 11.0
 
     for i in range(NUM_BOTS):
         name = f"turtlebot{i}"

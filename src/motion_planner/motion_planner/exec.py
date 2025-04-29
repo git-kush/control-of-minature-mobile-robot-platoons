@@ -101,7 +101,7 @@ class SimpleFollowerControl(Node):
 
         # Control constants
         self.linear_gain_l = 0.1
-        self.linear_gain_p = 0.4
+        self.linear_gain_p = 0.3
         self.linear_gain_s = 0.2
         self.linear_gain_o = 0.5
         self.angular_gain_l = 0.4
@@ -247,7 +247,7 @@ class SimpleFollowerControl(Node):
         # Only move forward if mostly facing the leader (within ~45 degrees)
         if abs(heading_error_l) < 0.8:  # ~45 degrees
             # Speed is proportional to distance error
-            cmd.linear.x = f_linear + self.follower_linear_vel.x
+            cmd.linear.x = f_linear + 0.8*self.follower_linear_vel.x
         else:
             # If not facing the leader, prioritize turning
             cmd.linear.x = 0.0

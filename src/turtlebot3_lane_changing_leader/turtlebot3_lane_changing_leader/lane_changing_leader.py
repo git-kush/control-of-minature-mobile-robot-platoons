@@ -12,15 +12,15 @@ import numpy as np
 class APFController(Node):
     def __init__(self):
         super().__init__('apf_controller')
-        
+
         # Declare parameters
         self.declare_parameter('initial_speed', 1.0)
         self.initial_speed = self.get_parameter('initial_speed').value
         self.get_logger().info(f"Initial speed set to: {self.initial_speed}")
-        
+
         # Motion enable flag - starts disabled
         self.motion_enabled = False
-        
+
         # Publishers and subscribers
         self.cmd_vel_pub = self.create_publisher(Twist, '/tb0/cmd_vel', 10)
         self.subscription = self.create_subscription(
@@ -28,17 +28,17 @@ class APFController(Node):
             '/tb0/scan',
             self.scan_callback,
             10)
-        
+
         # Service to enable/disable motion
         self.srv = self.create_service(SetBool, 'enable_motion', self.enable_motion_callback)
         self.get_logger().info("Motion control service created. Use 'ros2 service call /enable_motion std_srvs/srv/SetBool \"data: true\"' to start moving")
-        
+
         # Initialize scan data
         self.Range = [0] * 61  # number of entries
-        
+
         # Wait briefly for scan data
-        self.create_timer(0.5, self.timer_callback)
-        
+        self.create_timer(0.05, self.timer_callback)
+
         # For visualization
         self.i = 1
         self.initGraph()
@@ -67,7 +67,7 @@ class APFController(Node):
     def PlotData(self):
         self.x = [0] * len(self.Range)
         self.y = [0] * len(self.Range)
-        
+
         for i in range(len(self.Range)):
             angle = (i - (len(self.Range)-1)//2) * np.pi/180
             self.x[i] = -self.Range[i] * np.sin(angle)
@@ -83,14 +83,14 @@ class APFController(Node):
         self.fig = plt.figure(figsize=(12, 6))
         self.ax = self.fig.add_subplot(121)
         self.ax2 = self.fig.add_subplot(122)
-    
+
         self.ax.set_ylim(-1, 3)
         self.ax.set_xlim(-1, 1)
         self.ax2.set_ylim(300, -300)
         self.ax2.set_xlim(-300, 300)
-        
+
         plt.show()
-        
+
         self.scat1 = self.ax.scatter(self.x, self.y)
         self.plotForce = self.ax2.arrow(0, 0, (300 - (self.netFy))/100, self.netFx, width=0.5)
 
@@ -112,7 +112,7 @@ class APFController(Node):
                 self.fy[i] = 1 / self.y[i]
             else:
                 self.fy[i] = 0
-        
+
         # Calculate net forces
         self.netFx = sum(self.fx)
         self.netFy = sum(self.fy)
@@ -124,21 +124,21 @@ class APFController(Node):
     def Motion(self):
         # Create velocity command
         move = Twist()
-        
+
         # Check if motion is enabled
         if not self.motion_enabled:
             # Return zero velocity if motion is disabled
             return move
-            
+
         # Use the initial_speed parameter to scale the linear velocity
         base_linear_x = (100 - (self.netFy)) / 100
         move.linear.x = base_linear_x * self.initial_speed
-        
+
         # Angular velocity remains the same
         move.angular.z = self.netFx / 300
-        
+
         self.get_logger().info(f"Linear: {move.linear.x:.2f}, Angular: {move.angular.z:.2f}")
-        
+
         return move
 
     def Loop(self):
@@ -151,12 +151,12 @@ class APFController(Node):
             self.ax.set_ylim(-1, 3)
             self.ax.set_xlim(-1, 1)
             self.scat1 = self.ax.scatter(self.x, self.y)
-            
+
             self.ax2.cla()
             self.ax2.set_ylim(300, -300)
             self.ax2.set_xlim(-300, 300)
             self.plotForce = self.ax2.arrow(0, 0, -self.netFx, self.netFy, width=5)
-            
+
             self.fig.canvas.draw()
             self.fig.canvas.flush_events()
 
@@ -166,7 +166,7 @@ class APFController(Node):
 
             status = "ENABLED" if self.motion_enabled else "DISABLED"
             self.get_logger().info(f"Motion {status} | Fx: {-self.netFx:.2f}, Fy: {-self.netFy:.2f}")
-            
+
         except Exception as e:
             self.get_logger().error(f"Error in Loop: {e}")
 
@@ -174,7 +174,7 @@ class APFController(Node):
 def main(args=None):
     rclpy.init(args=args)
     apf_controller = APFController()
-    
+
     try:
         rclpy.spin(apf_controller)
     except KeyboardInterrupt:
