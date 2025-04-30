@@ -467,35 +467,14 @@
         </constraints>
       </ode>
     </physics>
-    <model name='right_edge'>
+    <model name='divider'>
       <static>1</static>
-      <pose>0 2 0.02 0 -0 0</pose>
+      <pose>0 0 0.02 0 -0 0</pose>
       <link name='link'>
         <visual name='visual'>
           <geometry>
             <box>
-              <size>30 0.1 0.01</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>1 1 1 1</specular>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='left_edge'>
-      <static>1</static>
-      <pose>0 -2 0.02 0 -0 0</pose>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <box>
-              <size>30 0.1 0.01</size>
+              <size>30 0.03 0.01</size>
             </box>
           </geometry>
           <material>
@@ -529,10 +508,20 @@
       <wall_time>1743924366 1338726</wall_time>
       <iterations>65760</iterations>
       <model name='Stop Sign'>
-        <pose>-13.9229 0.950442 0 0 -0 1.56796</pose>
+        <pose>-13.9229 0.45 0 0 -0 1.56796</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>-13.9229 0.950442 0 0 -0 1.56796</pose>
+          <pose>-13.9229 0.45 0 0 -0 1.56796</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='divider'>
+        <pose>0 0.45 0.02 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0.45 0.02 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -548,65 +537,45 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='left_edge'>
-        <pose>-0.463476 -0.479548 0.02 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>-0.463476 -0.479548 0.02 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
       <model name='my_car'>
-        <pose>8.78009 0.066731 0.020001 -9e-06 -0 -0.017065</pose>
+        <pose>7.78009 0.066731 0.020001 -9e-06 -0 -0.017065</pose>
         <scale>1 1 1</scale>
         <link name='chassis'>
-          <pose>8.78009 0.066732 0.120001 -9e-06 -0 -0.017065</pose>
+          <pose>7.78009 0.066732 0.120001 -9e-06 -0 -0.017065</pose>
           <velocity>7e-05 0.000773 -0.001229 -0.007773 0.000204 -0.000247</velocity>
           <acceleration>0.064151 1.46834 -2.45733 -2.97994 0.408248 0.302566</acceleration>
           <wrench>0.064151 1.46834 -2.45733 0 -0 0</wrench>
         </link>
         <link name='front_left_wheel'>
-          <pose>8.8823 0.195007 0.12 1.56989 1.4743 3.12353</pose>
+          <pose>7.8823 0.195007 0.12 1.56989 1.4743 3.12353</pose>
           <velocity>0.000104 0.000753 -0.002296 -0.007545 0.0002 -0.000226</velocity>
           <acceleration>0.030603 1.50854 -4.59202 -2.53639 -0.38207 0.345997</acceleration>
           <wrench>0.006121 0.301708 -0.918404 0 -0 0</wrench>
         </link>
         <link name='front_right_wheel'>
-          <pose>8.87786 -0.064955 0.120002 1.57016 1.42973 3.1238</pose>
+          <pose>7.87786 -0.064955 0.120002 1.57016 1.42973 3.1238</pose>
           <velocity>3.5e-05 0.000764 -0.00019 -0.007639 0.000284 -0.000266</velocity>
           <acceleration>0.100059 1.5273 -0.380075 -2.70394 1.06088 0.264852</acceleration>
           <wrench>0.020012 0.30546 -0.076015 0 -0 0</wrench>
         </link>
         <link name='rear_left_wheel'>
-          <pose>8.68233 0.198419 0.12 -1.56932 1.51423 -0.015687</pose>
+          <pose>7.68233 0.198419 0.12 -1.56932 1.51423 -0.015687</pose>
           <velocity>0.000105 0.000826 -0.002281 -0.006705 0.000186 -0.000226</velocity>
           <acceleration>0.02989 1.49618 -4.56297 -0.858094 -0.413196 0.345904</acceleration>
           <wrench>0.005978 0.299235 -0.912594 0 -0 0</wrench>
         </link>
         <link name='rear_right_wheel'>
-          <pose>8.67789 -0.061543 0.120002 -1.57014 1.43749 -0.016514</pose>
+          <pose>7.67789 -0.061543 0.120002 -1.57014 1.43749 -0.016514</pose>
           <velocity>3.8e-05 0.000796 -0.000173 -0.007959 0.000314 -0.000249</velocity>
           <acceleration>0.102462 1.43186 -0.345497 2.92993 0.520858 0.30009</acceleration>
           <wrench>0.020492 0.286371 -0.069099 0 -0 0</wrench>
         </link>
       </model>
-      <model name='right_edge'>
-        <pose>-0.212304 1.73757 0.02 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>-0.212304 1.73757 0.02 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
       <model name='road'>
-        <pose>0.321633 1.64792 0.01 0 -0 0</pose>
+        <pose>0.321633 1.44792 0.01 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.158032 0.632435 0.01 0 -0 0</pose>
+          <pose>0.158032 0.432435 0.01 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -616,17 +585,17 @@
         <pose>0 0.0163 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='Wall_5'>
-          <pose>0 -0.4462 0 0 -0 0</pose>
+          <pose>0 -0.3125 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='road_n_clone'>
-        <pose>-0.624496 2.22089 0 0 -0 0</pose>
+        <pose>-0 1.15839 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='Wall_5'>
-          <pose>-0.624496 1.75839 0 0 -0 0</pose>
+          <pose>0 1.15839 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -680,7 +649,7 @@
       <pose>14.0219 -0.998859 0 0 -0 0</pose>
     </model>
     <model name='road_n'>
-      <pose>0 -0.5375 0 0 -0 0</pose>
+      <pose>0 -0.5360 0 0 -0 0</pose>
       <link name='Wall_5'>
         <collision name='Wall_5_Collision'>
           <geometry>
@@ -721,7 +690,7 @@
             <layer>0</layer>
           </meta>
         </visual>
-        <pose>0 -0.4625 0 0 -0 0</pose>
+        <pose>0 -0.3125 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -729,7 +698,7 @@
       <static>1</static>
     </model>
     <model name='road_n_clone'>
-      <pose>-0.349454 3.46489 0 0 -0 0</pose>
+      <pose>0 1.15839 0 0 -0 0</pose>
       <link name='Wall_5'>
         <collision name='Wall_5_Collision'>
           <geometry>
@@ -798,7 +767,7 @@
         <visual name='visual'>
           <geometry>
             <box>
-              <size>30 2.02042 0.02</size>
+              <size>30 1.502042 0.02</size>
             </box>
           </geometry>
           <material>

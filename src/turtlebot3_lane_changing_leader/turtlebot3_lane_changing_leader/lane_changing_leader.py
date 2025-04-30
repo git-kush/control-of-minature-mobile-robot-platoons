@@ -167,18 +167,17 @@ class APFController(Node):
             dx = self.virtual_goal['x'] - self.pos_x
             dy = self.virtual_goal['y'] - self.pos_y
             distance = math.sqrt(dx**2 + dy**2)
-            if(distance < 0.1):
+            if(distance < 0.2):
                 self.overtaking = False
                 self.virtual_goal = {
                     "x": 0.0,
                     "y": 0.0
                 }
-            # elif():
             else:
                 bearing = math.atan2(dy, dx)
                 heading_err = self.normalize_angle(bearing - self.orientation)
-                self.netFx -= 2*heading_err # rotational
-                self.netFy -= 2*distance # translational
+                self.netFx += 25*heading_err # rotational
+                self.netFy -= 5*distance # translational
                 self.get_logger().info(f"heading_err: {2*heading_err}, distance: {2*distance}")
 
         # Calculate force magnitudes
@@ -212,8 +211,8 @@ class APFController(Node):
             if(not self.overtaking and (0.1 < self.obstacle_pos['x'] - self.pos_x < 0.3)):
                 self.overtaking = True
                 self.virtual_goal = {
-                    "x": self.obstacle_pos['x'] - 5,
-                    "y": self.obstacle_pos['y'] #+1
+                    "x": self.obstacle_pos['x'] - 6,
+                    "y": self.obstacle_pos['y']
                 }
             self.PlotData()
             self.Forces()

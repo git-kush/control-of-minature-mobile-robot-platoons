@@ -73,7 +73,7 @@ def generate_launch_description():
                 "-entity", name,
                 "-robot_namespace", namespace,
                 "-x", str(x_position),
-                "-y", "0.0",
+                "-y", "0.1",
                 "-z", "0.01",
                 "-Y", "3.14159",
                 "-unpause",
